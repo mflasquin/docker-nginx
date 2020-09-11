@@ -73,6 +73,18 @@ then
   rm /etc/nginx/conf.d/sf4.conf
 fi
 
+if [ "$PROJECT_TYPE" = "prestashop" ]
+then
+  VHOST_FILE="/etc/nginx/conf.d/prestashop.conf"
+  [ ! -z "${PROJECT_ROOT}" ] && sed -i "s#!PROJECT_ROOT!#${PROJECT_ROOT}#" $VHOST_FILE
+  rm /etc/nginx/conf.d/default.conf
+fi
+
+if [ "$PROJECT_TYPE" != "prestashop" ]
+then
+  rm /etc/nginx/conf.d/prestashop.conf
+fi
+
 [ ! -z "${UPLOAD_MAX_FILESIZE}" ] && sed -i "s/!UPLOAD_MAX_FILESIZE!/${UPLOAD_MAX_FILESIZE}/" $VHOST_FILE
 [ ! -z "${FPM_HOST}" ] && sed -i "s/!FPM_HOST!/${FPM_HOST}/" $VHOST_FILE
 [ ! -z "${FPM_PORT}" ] && sed -i "s/!FPM_PORT!/${FPM_PORT}/" $VHOST_FILE

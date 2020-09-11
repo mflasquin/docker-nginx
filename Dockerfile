@@ -41,6 +41,7 @@ ADD etc/magento.conf /etc/nginx/conf.d/magento.conf
 ADD etc/magento2.conf /etc/nginx/conf.d/magento2.conf
 ADD etc/wordpress.conf /etc/nginx/conf.d/wordpress.conf
 ADD etc/sf4.conf /etc/nginx/conf.d/sf4.conf
+ADD etc/prestashop.conf /etc/nginx/conf.d/prestashop.conf
 
 # =========================================
 # Create mflasquin user
