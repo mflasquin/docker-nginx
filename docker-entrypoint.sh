@@ -6,6 +6,7 @@ chown -R mflasquin:mflasquin $PROJECT_ROOT
 chown -R mflasquin:mflasquin /home/mflasquin
 
 VHOST_FILE="/etc/nginx/conf.d/default.conf"
+[ ! -z "${PROJECT_ROOT}" ] && sed -i "s#!PROJECT_ROOT!#${PROJECT_ROOT}#" $VHOST_FILE
 
 #CHANGE UID IF NECESSARY
 if [ ! -z "$MFLASQUIN_UID" ]
